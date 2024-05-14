@@ -1,0 +1,19 @@
+
+.cuadro {
+    background-color: #fafafa;
+    border: 1px solid #d2d1cf;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.cuadro-canvas {
+    cursor: crosshair;
+    background-color: #f8f8ec;
+    border: 1px solid black;
+}
+
+.linea {
+    width: 100%;
+    border: 1px solid grey;
+}

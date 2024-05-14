@@ -1,0 +1,468 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject IJSRuntime js
+@using Microsoft.AspNetCore.Components.Forms
+
+
+<PageTitle>GrafosWeb</PageTitle>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-1"></div>
+
+        <!--- CANVAS DE EDICÓN DEL GRAFO --->
+        <div class="col-12 col-sm-8 mb-1">
+            <div class="cuadro text-center" style="width: 100%; height: 100vh">
+                <p class="h6 fw-bold" style="color: #0a0a0a; padding: 6px">Crea un grafo y aplícale un algoritmo</p>
+
+                <div class="alert alert-success ms-2 me-2" style="margin-bottom: 1%">
+                    <a role="status">@cuadroDialogo</a>
+                </div>
+
+                <a>@modo Coordenadas del último clic: @lastClick @pesoArista</a>
+
+                <canvas class="cuadro-canvas ms-2" id="myCanvas" style="width: 96%; height: 75%; display: block"></canvas>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-3 mt-3 mb-10">
+
+            <!--- MENU DEL CUADRO EDICIÓN --->
+            <div class="cuadro" style="height: 180px">
+                <p class="h6 text-center fw-bold" style="color: #0a0a0a; background-color: #d2d1cf; padding: 4px">Edición</p>
+
+                <div class="d-flex flex-nowrap justify-content-center">
+                    <button type="button" class="btn btn-secondary btn-sm ms-2" @onclick="Seleccionar">Seleccionar</button>
+                    <button type="button" class="btn btn-primary btn-sm ms-1" @onclick="AddVertice">Add Vértice</button>
+                    <button type="button" class="btn btn-primary btn-sm ms-1 me-2" @onclick="@(() => AddArista(0))">Add Arista</button>
+                </div>
+
+                <div class="d-grid">
+                    <button type="button" class="btn btn-danger btn-sm ms-2 mt-1 me-2" @onclick="EliminarObjeto">Eliminar Objeto</button>
+                </div>
+                <div class="d-grid">
+                    <button type="button" class="btn btn-outline-dark btn-sm ms-2 mt-1 me-2" @onclick="LimpiarCanvas" id="limpiar-canvas">Limpiar canvas</button>
+                </div>
+            </div>
+
+            <!--- MENU DEL CUADRO ARCHIVO --->
+            <div class="cuadro" style="height: 282px">
+                <p class="h6 text-center fw-bold" style="color: #0a0a0a; background-color: #d2d1cf; padding: 4px">Archivo</p>
+
+                <div class="d-grid ms-2 me-2">
+                    <InputFile OnChange="HandleFileChange" style="display: none" id="input-file" />
+                    <button type="button" id="btnCargarGrafo" class="btn btn-primary btn-sm">Cargar grafo (.txt)</button>
+
+                    <button type="button" id="btnGuardarGrafo" class="btn btn-primary btn-sm mt-1">Guardar grafo (.png)</button>
+
+                    <p class="h6 mt-2"><small>Contenido del archivo:</small></p>
+                    <textarea class="form-control" style="height: 132px; resize: none" @bind="contenidoArchivo" readonly></textarea>
+                </div>
+            </div>
+
+            <!--- MENU DEL CUADRO ALGORITMOS --->
+            <div class="cuadro" style="height: 200px">
+                <p class="h6 text-center fw-bold" style="color: #0a0a0a; background-color: #d2d1cf; padding: 4px">Algoritmos</p>
+
+                <div class="d-grid ms-2 me-2">
+                    <select class="form-select form-select-sm" id="algoritmos">
+                        <option>- Seleccione una opción -</option>
+                        <option>BFS</option>
+                        <option>DFS</option>
+                        <option>Prim</option>
+                        <option>Kruskal</option>
+                        <option>Dijkstra</option>
+                        <option>Bellman-Ford</option>
+                        <option>Boruvka</option>
+                        <option>Reverse-Boruvka</option>
+                        <option>Algoritmo de coloreo</option>
+                        <option>Camino más corto</option>
+                    </select>
+
+                    <div class="input-group input-group-sm mt-1">
+                        <span class="input-group-text">Nodo Inicio</span>
+                        <input type="text" class="form-control me-2" @bind="nodoInicio">
+
+                        <span class="input-group-text">Nodo Fin</span>
+                        <input type="text" class="form-control"  @bind="nodoFin">
+                    </div>
+
+                    <button type="button" id="btnComenzar" class="btn btn-success btn-sm mt-1" @onclick="argumentosValidos">Comenzar</button>
+                    <div class="linea mt-2"></div>
+                    <button type="button" id="btnTabla" class="btn btn-primary btn-sm mt-2" @onclick="AbrirModalTabla" disabled>Tabla de resultados</button>
+                </div>
+            </div>
+
+            <!--- CUADRO ACERCA DE --->
+            <div class="cuadro" style="height: 48px">
+                <div class="d-grid ms-2 me-2">
+                    <button type="button" class="btn btn-outline-info btn-sm mt-2" @onclick="AbrirModalAcercaDe">Acerca de</button>
+                </div>
+            </div>
+        </div>
+
+        <!--- MODAL PARA AGREGAR ARISTA --->
+        <div class="modal" id="myModal" style="display:@(IsOpen ? "block" : "none"); background-color: rgba(0, 0, 0, 0.5);">
+            <div class="modal-dialog modal-dialog-centered" style="width: 300px">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header justify-content-center" style="background-color: #243757; height: 50px">
+                        <h5 class="modal-title fw-bolder" style="color: white">Agregar Arista</h5>                      
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="input-group input-group-sm mt-1">
+                            <span class="input-group-text"><strong>Peso de la arista</strong></span>
+                            <input type="text" class="form-control me-2" @bind="pesoArista">
+                        </div>
+
+                        <div class="form-check mt-1">
+                            <input type="checkbox" id="checkSinPeso" class="form-check-input">
+                            <label class="form-check-label">Sin peso</label>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer"  style="height: 50px">
+                        <button id="botonModal" type="button" class="btn btn-success" data-bs-dismiss="modal" style="margin-top: -7px" @onclick="CerrarModal">Aceptar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--- MODAL ACERCA DE --->
+        <div class="modal" style="display:@(IsOpenAcercaDe ? "block" : "none"); background-color: rgba(0, 0, 0, 0.5);">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center">
+                    
+                    <!-- Modal Header -->
+                    <div class="modal-header justify-content-center" style="background-color: #243757; height: 50px">
+                        <h5 class="modal-title fw-bolder" style="color: white">Acerca de la página GrafosWeb</h5>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <h6>Proyecto para la materia de <br/> <strong>Análisis y Diseño de Algoritmos</strong> <br /><br /></h6>
+                        <h6>Desarrolladores: <br /> Juan Diego Nolasco Valencia <br /> Arisbeth Monterrosas Zitlalpopoca <br /> Ari Josué Rodriguez Lucero </h6>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer" style="height: 50px">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="margin-top: -7px" @onclick="CerrarModalAcercaDe">Regresar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--- MODAL TABLA DE RESULTADOS --->
+        <div class="modal" style="display:@(IsOpenTabla ? "block" : "none"); background-color: rgba(0, 0, 0, 0.5)">
+            <div class="modal-dialog modal-dialog-centered" style="width: 100%">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header justify-content-center" style="background-color: #243757; height: 50px">
+                        <h5 class="modal-title fw-bolder" style="color: white">Tabla de Resultados: @algoritmo</h5>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover mt-1">
+                                <thead>
+                                    <tr class="table-dark">
+                                        <th>Desde</th>
+                                        <th>Hasta</th>
+                                        <th class="text-center">Recorrido</th>
+                                        <th class="text-center">Costo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@nodoInicio</td>
+                                        <td>@nodoFin</td>
+                                        <td class="text-center">@recorrido</td>
+                                        <td class="text-center">@costo</td>
+                                    </tr>
+                                </tbody>                                
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer" style="height: 50px">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="margin-top: -7px" @onclick="CerrarModalTabla">Regresar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@inject IJSRuntime JSRuntime
+@code {
+    string cuadroDialogo = "Información: Selecciona alguna opción del menú Edición para comenzar a crear.";
+    int modo = 0;
+
+    // Funciones para actualizar el cuadro de diálogo y elegir el modo de edición.
+    public void Seleccionar() 
+    {
+        cuadroDialogo = "Selecciona algún elemento del grafo para editar sus propiedades.";
+        modo = 0;
+    }
+    public void AddVertice() 
+    {
+        cuadroDialogo = "Agrega un nodo dando click en el cuadro de abajo.";
+        modo = 1;
+    }
+    [JSInvokable]
+    public void AddArista(int ban)
+    {
+        modo = 2;
+        if (ban == 0)
+        {
+            cuadroDialogo = "Selecciona dos nodos para agregar un arista.";
+        }
+        if (ban == 1)
+        {
+            cuadroDialogo = "Un nodo seleccionado. Selecciona otro para agregar la arista.";
+        }
+        if (ban == 2)
+        {
+            AbrirModal();
+            ban = 0;
+        }
+        StateHasChanged();
+    }
+    public void EliminarObjeto() 
+    {
+        cuadroDialogo = "Da click sobre un elemento para eliminarlo.";
+        modo = 3;
+    }
+    public void LimpiarCanvas()
+    {
+        cuadroDialogo = "Se ha limpiado el canvas. Puedes volver a dibujar.";
+        modo = 4;
+        StateHasChanged();
+    }
+
+    [JSInvokable]
+    public int ModoEdicion() 
+    {
+        return modo;
+    }
+
+
+    // Funcines para obtener las coordenadas del evento click en myCanvas
+    private string lastClick = "N/A";
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (firstRender)
+        {
+            await js.InvokeVoidAsync("initializeCanvasClickEvents", DotNetObjectReference.Create(this));
+        }
+    }
+
+    [JSInvokable]
+    public void CanvasClick(double x, double y) {
+        lastClick = $"({x}, {y})";
+        StateHasChanged(); // Forzar la actualización del UIs
+    }
+
+
+    // Funciones para controlar el Modal Agregar Arista
+    int pesoArista = 1;
+    private bool IsOpen { get; set; }
+
+    public void AbrirModal()
+    {
+        IsOpen = true;
+    }
+
+    public void CerrarModal()
+    {
+        IsOpen = false;
+    }
+
+    [JSInvokable]
+    public int getPeso()
+    {
+        return pesoArista;
+    }
+
+
+    // Funciones para controlar Modal Acerca De
+    private bool IsOpenAcercaDe { get; set; }
+
+    public void AbrirModalAcercaDe()
+    {
+        IsOpenAcercaDe = true;
+    }
+
+    public void CerrarModalAcercaDe()
+    {
+        IsOpenAcercaDe = false;
+    }
+
+
+    // Funciones y variables para controlar el Modal Tabla de Resultados
+    string recorrido = "";
+    string costo = "";
+    private bool IsOpenTabla { get; set; }
+
+    public void AbrirModalTabla()
+    {
+        IsOpenTabla = true;
+    }
+
+    public void CerrarModalTabla()
+    {
+        IsOpenTabla = false;
+    }
+    [JSInvokable]
+    public void setCosto(string cos)
+    {
+        costo = cos;
+    }
+    [JSInvokable]
+    public void setRecorrido(string reco)
+    {
+        recorrido = reco;
+    }
+
+
+    // Lógica para el botón Comenzar: obtiene el Algoritmo, Nodo Inicio y Nodo Fin
+    string nodoInicio = "";
+    string nodoFin = "";
+    string algoritmo = "";
+
+    [JSInvokable]
+    public void setAlgoritmo(string algorit)
+    {
+        algoritmo = algorit;
+
+    }
+
+    [JSInvokable]
+    public string ObtenerNodoInicio()
+    {
+        return nodoInicio;
+    }
+
+    [JSInvokable]
+    public string ObtenerNodoFin()
+    {
+        return nodoFin;
+    }
+
+    [JSInvokable]
+    public void setNodoFin(string nf)
+    {
+        nodoFin = nf;
+    }
+
+
+
+    public void argumentosValidos()
+    {
+
+        if (nodoInicio == "" || nodoFin == "" || algoritmo == "- Seleccione una opción -")
+        {
+            cuadroDialogo = "Argumentos no válidos.";
+        } 
+        else
+        {
+            Console.WriteLine(nodoFin);
+            Console.WriteLine(nodoInicio);
+
+            cuadroDialogo = "Argumentos válidos: Revisa la tabla de resultados.";
+
+            // Obtener el algoritmo seleccionado desde la variable nodoAlgoritmo
+            switch (algoritmo)
+            {
+                case "BFS":
+                    // Llamar al método correspondiente para el algoritmo BFS
+                    Console.WriteLine(algoritmo);
+
+                    break;
+                case "DFS":
+                    // Llamar al método correspondiente para el algoritmo DFS
+                    //  EjecutarDFS();
+                    Console.WriteLine(algoritmo);
+                    break;
+                case "Prim":
+                    // Llamar al método correspondiente para el algoritmo Prim
+                    // EjecutarPrim();
+                    Console.WriteLine(algoritmo);
+                    break;
+                case "Kruskal":
+                    // Llamar al método correspondiente para el algoritmo de Kruskal
+                    //  EjecutarKruskal();
+                    Console.WriteLine(algoritmo);
+                    break;
+                case "Dijkstra":
+                    // Llamar al método correspondiente para el algoritmo de Dijkstra
+                    // EjecutarDijkstra();
+                    Console.WriteLine(algoritmo);
+                    break;
+                case "Bellman-Ford":
+                    // Llamar al método correspondiente para el algoritmo de Bellman-Ford
+                    // EjecutarBellmanFord();
+                    Console.WriteLine(algoritmo);
+                    break;
+                case "Boruvka":
+                    // Llamar al método correspondiente para el algoritmo de Boruvka
+                    // EjecutarBoruvka();
+                    Console.WriteLine(algoritmo);
+                    break;
+                case "Reverse-Boruvka":
+                    // Llamar al método correspondiente para el algoritmo de Reverse-Boruvka
+                    //  EjecutarReverseBoruvka();
+                    Console.WriteLine(algoritmo);
+                    break;
+                case "Algoritmo de coloreo":
+                    // Llamar al método correspondiente para el algoritmo de coloreo
+                    //  EjecutarAlgoritmoColoreo();
+                    Console.WriteLine(algoritmo);
+                    break;
+                case "Camino más corto":
+                    // Llamar al método correspondiente para el algoritmo de camino más corto
+                    //EjecutarCaminoMasCorto();
+                    Console.WriteLine(algoritmo);
+                    break;
+                default:
+                    // Lógica para el caso en que no se haya seleccionado un algoritmo válido
+                    break;
+            }
+        }
+    }
+
+
+    // Función para el botón Cargar Grafo
+    string contenidoArchivo = "";
+
+    private async Task HandleFileChange(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+
+        if (file == null || file.ContentType != "text/plain")
+        {
+            contenidoArchivo = "Por favor, seleccione un archivo de texto (.txt).";
+            return;
+        }
+
+        using (var reader = new StreamReader(file.OpenReadStream()))
+        {
+            contenidoArchivo = await reader.ReadToEndAsync();
+            modo = 10;
+        }
+    }
+
+    [JSInvokable]
+    public string getContenidoArchivo()
+    {
+        return contenidoArchivo;
+    }
+}

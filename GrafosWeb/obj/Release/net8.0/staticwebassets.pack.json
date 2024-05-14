@@ -1,0 +1,169 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\GrafosWeb.bundle.scp.css",
+      "PackagePath": "staticwebassets\\GrafosWeb.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\bootstrap\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\css\\estilos.css",
+      "PackagePath": "staticwebassets\\css\\estilos.css"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\bjdnv\\Downloads\\GrafosWeb_v6-3\\GrafosWeb_v6-2\\GrafosWeb_v5-1\\GrafosWeb_v4\\GrafosWeb_v3 - copia\\GrafosWeb\\GrafosWeb\\wwwroot\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts.js"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.GrafosWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.GrafosWeb.props",
+      "PackagePath": "build\\GrafosWeb.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.GrafosWeb.props",
+      "PackagePath": "buildMultiTargeting\\GrafosWeb.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.GrafosWeb.props",
+      "PackagePath": "buildTransitive\\GrafosWeb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

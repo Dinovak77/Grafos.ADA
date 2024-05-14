@@ -1,0 +1,151 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject IJSRuntime js
+
+<PageTitle>GrafosWeb</PageTitle>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4" style="margin-left: 125px; margin-right: -140px;">
+
+            <!--- MENU DEL CUADRO EDICIÓN --->
+            <div class="cuadro" style="width: 290px; height: 150px">
+                <p class="h6 text-center fw-bold" style="color: #0a0a0a; background-color: #d2d1cf; padding: 4px">Edición</p>
+
+                <button type="button" class="btn btn-secondary btn-sm ms-2" @onclick="Seleccionar">Seleccionar</button>
+                <button type="button" class="btn btn-primary btn-sm" @onclick="AddVertice">Add Vértice</button>
+                <button type="button" class="btn btn-primary btn-sm" @onclick="@(() => AddArista(0))">Add Arista</button>
+                <div class="d-grid">
+                    <button type="button" class="btn btn-danger btn-sm ms-2 mt-1 me-2" @onclick="EliminarObjeto">Eliminar Objeto</button>
+                </div>
+                <div class="d-grid">
+                    <button type="button" class="btn btn-outline-dark btn-sm ms-2 mt-1 me-2" @onclick="LimpiarCanvas" id="limpiar-canvas">Limpiar canvas</button>
+                </div>
+            </div>
+
+            <!--- MENU DEL CUADRO ARCHIVO --->
+            <div class="cuadro" style="width: 290px; height: 115px">
+                <p class="h6 text-center fw-bold" style="color: #0a0a0a; background-color: #d2d1cf; padding: 4px">Archivo</p>
+
+                <div class="d-grid ms-2 me-2">
+                    <button type="button" class="btn btn-primary btn-sm">Cargar grafo (.txt)</button>
+                    <button type="button" class="btn btn-primary btn-sm mt-1">Guardar grafo (.png)</button>
+                </div>
+            </div>
+
+            <!--- MENU DEL CUADRO ALGORITMOS --->
+            <div class="cuadro" style="width: 290px; height: 200px">
+                <p class="h6 text-center fw-bold" style="color: #0a0a0a; background-color: #d2d1cf; padding: 4px">Algoritmos</p>
+
+                <div class="d-grid ms-2 me-2">
+                    <select class="form-select form-select-sm">
+                        <option> - Seleccione una opción -</option>
+                        <option>BFS</option>
+                        <option>DFS</option>
+                        <option>Prim</option>
+                        <option>Kruskal</option>
+                        <option>Dijkstra</option>
+                        <option>Bellman-Ford</option>
+                        <option>Boruvka</option>
+                        <option>Reverse-Boruvka</option>
+                        <option>Algoritmo de coloreo</option>
+                        <option>Camino más corto</option>
+                    </select>
+
+                    <div class="input-group input-group-sm mt-1">
+                        <span class="input-group-text">Nodo Inicio</span>
+                        <input type="text" class="form-control me-2">
+
+                        <span class="input-group-text">Nodo Fin</span>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <button type="button" class="btn btn-success btn-sm mt-1">Comenzar</button>
+                    <div class="linea mt-2"></div>
+                    <button type="button" class="btn btn-primary btn-sm mt-2">Tabla de resultados</button>
+                </div>
+            </div>
+        </div>
+
+        <!--- CANVAS DE EDICÓN DEL GRAFO --->
+        <div class="col-5">
+            <div class="cuadro text-center" style="width: 700px; height: 740px">
+                <p class="h6 fw-bold" style="color: #0a0a0a; padding: 6px">Crea un grafo y aplícale un algoritmo</p>
+
+                <div class="alert alert-success ms-2 me-2" style="margin-bottom: 1%">
+                    <a role="status">@cuadroDialogo</a>
+                </div>
+
+                <a>@modo Coordenadas del último clic: @lastClick</a>
+
+                <canvas class="cuadro-canvas" id="myCanvas" type="" height="600" width="680"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    string cuadroDialogo = "Información: Selecciona alguna opción del menú Edición para comenzar a crear.";
+    int modo = 0;
+
+    // Funciones para actualizar el cuadro de diálogo y elegir el modo de edición.
+    public void Seleccionar() 
+    {
+        cuadroDialogo = "Selecciona algún elemento del grafo para editar sus propiedades.";
+        modo = 0;
+    }
+    public void AddVertice() 
+    {
+        cuadroDialogo = "Agrega un nodo dando click en el cuadro de abajo.";
+        modo = 1;
+    }
+    [JSInvokable]
+    public void AddArista(int ban) 
+    {
+        modo = 2;
+        if (ban == 1) 
+        {
+            cuadroDialogo = "Un nodo seleccionado. Selecciona otro para agregar la arista.";
+            ban = 0;
+        } 
+        else 
+        {
+            cuadroDialogo = "Selecciona dos nodos para agregar un arista.";
+        }
+        StateHasChanged();
+    }
+    public void EliminarObjeto() 
+    {
+        cuadroDialogo = "Da click sobre un elemento para eliminarlo.";
+        modo = 3;
+    }
+    public void LimpiarCanvas()
+    {
+        cuadroDialogo = "Se ha limpiado el canvas. Puedes volver a dibujar.";
+        modo = 4;
+        StateHasChanged();
+    }
+
+    [JSInvokable]
+    public int ModoEdicion() 
+    {
+        return modo;
+    }
+
+
+    // Funcines para obtener las coordenadas del evento click en myCanvas
+    private string lastClick = "N/A";
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (firstRender)
+        {
+            await js.InvokeVoidAsync("initializeCanvasClickEvents", DotNetObjectReference.Create(this));
+        }
+    }
+
+    [JSInvokable]
+    public void CanvasClick(double x, double y) {
+        lastClick = $"({x}, {y})";
+        StateHasChanged(); // Forzar la actualización del UIs
+    }
+}

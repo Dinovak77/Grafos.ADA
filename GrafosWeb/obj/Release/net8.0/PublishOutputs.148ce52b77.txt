@@ -1,0 +1,7 @@
+C:\Users\bjdnv\Downloads\GrafosWeb_v6-3\GrafosWeb_v6-2\GrafosWeb_v5-1\GrafosWeb_v4\GrafosWeb_v3 - copia\GrafosWeb\GrafosWeb\obj\Release\net8.0\PubTmp\Out\GrafosWeb.exe
+C:\Users\bjdnv\Downloads\GrafosWeb_v6-3\GrafosWeb_v6-2\GrafosWeb_v5-1\GrafosWeb_v4\GrafosWeb_v3 - copia\GrafosWeb\GrafosWeb\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\bjdnv\Downloads\GrafosWeb_v6-3\GrafosWeb_v6-2\GrafosWeb_v5-1\GrafosWeb_v4\GrafosWeb_v3 - copia\GrafosWeb\GrafosWeb\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\bjdnv\Downloads\GrafosWeb_v6-3\GrafosWeb_v6-2\GrafosWeb_v5-1\GrafosWeb_v4\GrafosWeb_v3 - copia\GrafosWeb\GrafosWeb\obj\Release\net8.0\PubTmp\Out\GrafosWeb.dll
+C:\Users\bjdnv\Downloads\GrafosWeb_v6-3\GrafosWeb_v6-2\GrafosWeb_v5-1\GrafosWeb_v4\GrafosWeb_v3 - copia\GrafosWeb\GrafosWeb\obj\Release\net8.0\PubTmp\Out\GrafosWeb.deps.json
+C:\Users\bjdnv\Downloads\GrafosWeb_v6-3\GrafosWeb_v6-2\GrafosWeb_v5-1\GrafosWeb_v4\GrafosWeb_v3 - copia\GrafosWeb\GrafosWeb\obj\Release\net8.0\PubTmp\Out\GrafosWeb.runtimeconfig.json
+C:\Users\bjdnv\Downloads\GrafosWeb_v6-3\GrafosWeb_v6-2\GrafosWeb_v5-1\GrafosWeb_v4\GrafosWeb_v3 - copia\GrafosWeb\GrafosWeb\obj\Release\net8.0\PubTmp\Out\GrafosWeb.pdb
