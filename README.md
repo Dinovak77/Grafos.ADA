@@ -1,1 +1,1 @@
-Esta aplicacion fue creada para la materi de analisis y diseño de algoritmos.
+Esta aplicacion fue creada para la materia de analisis y diseño de algoritmos.
